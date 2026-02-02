@@ -17,6 +17,7 @@ body{
     justify-content:center;
     align-items:center;
 }
+
 .box{
     background:white;
     padding:65px;
@@ -25,16 +26,21 @@ body{
     box-shadow:0 30px 60px rgba(0,0,0,0.18);
     max-width:580px;
     width:95%;
+    animation:pop .8s ease;
 }
+
 h1{
     color:#c9184a;
     font-size:3em;
+    margin-bottom:25px;
 }
+
 p{
     font-size:1.6em;
     line-height:1.85;
     color:#555;
 }
+
 button{
     margin:20px;
     padding:18px 44px;
@@ -42,18 +48,32 @@ button{
     border-radius:45px;
     font-size:1.4em;
     cursor:pointer;
+    transition:.3s;
+    font-family:'Poppins',sans-serif;
 }
+
 .yes{background:#ff4d6d;color:white;}
 .no{background:#f1f1f1;}
+
+.yes:hover{transform:scale(1.1);}
+.no:hover{transform:translateX(35px);}
+
 .heart{
     position:absolute;
     bottom:-60px;
     font-size:44px;
     animation:float 5s linear infinite;
+    opacity:.95;
 }
+
 @keyframes float{
     from{transform:translateY(0);}
     to{transform:translateY(-120vh);}
+}
+
+@keyframes pop{
+    from{transform:scale(.85);opacity:0;}
+    to{transform:scale(1);opacity:1;}
 }
 </style>
 </head>
@@ -67,51 +87,60 @@ button{
     <button class="no" onclick="noClicked()">NO 😢</button>
 </div>
 
+<!-- Calm soft guitar (royalty-free) -->
+<audio id="guitarMusic" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5c6c8a4d9f.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-let content=document.getElementById("content");
+let content = document.getElementById("content");
 
+/* NO BUTTON */
 function noClicked(){
-    content.innerHTML=`
-    <h1>Oops 😭💔</h1>
-    <p>Will you be my Valentine’s, beboo?? 💕</p>
-    <button class="yes" onclick="yesClicked()">YES 💖</button>
-    <button class="no" onclick="noClicked()">NO 😢</button>`;
+    content.innerHTML = `
+        <h1>Oops 😭💔</h1>
+        <p>Will you be my Valentine’s, beboo?? 💕</p>
+        <button class="yes" onclick="yesClicked()">YES 💖</button>
+        <button class="no" onclick="noClicked()">NO 😢</button>
+    `;
 }
 
+/* YES BUTTON */
 function yesClicked(){
-    content.innerHTML=`
-    <h1>Hehehe 💗</h1>
-    <p>Lock kiya jaye? 😏🔒</p>
-    <button class="yes" onclick="finalYes()">Hanji 💖</button>
-    <button class="yes" onclick="finalYes()">Hannnnjiiii 💕</button>`;
+    content.innerHTML = `
+        <h1>Hehehe 💗</h1>
+        <p>Lock kiya jaye? 😏🔒</p>
+        <button class="yes" onclick="finalYes()">Hanji 💖</button>
+        <button class="yes" onclick="finalYes()">Hannnnjiiii 💕</button>
+    `;
 }
 
+/* FINAL YES */
 function finalYes(){
     startHearts();
 
-    // OPEN SONG IN YOUTUBE (guaranteed play)
-    window.open(
-      "https://www.youtube.com/watch?v=1QfK7a6ZK4Q&t=52s",
-      "_blank"
-    );
+    // play soft guitar music 🎸
+    document.getElementById("guitarMusic").play();
 
-    content.innerHTML=`
-    <h1>Happy Valentine’s Day Baby 💗</h1>
-    <p>
-    You are the best thing that ever happened to me.<br>
-    You make me smile every single day, effortlessly.<br><br>
+    content.innerHTML = `
+        <h1>Happy Valentine’s Day Baby 💗</h1>
+        <p>
+            You are the best thing that ever happened to me.<br>
+            You make me smile every single day, effortlessly.<br><br>
 
-    My partner, my friend, my comfort, my everything — all in one.<br>
-    With you, life feels warmer, lighter, and happier.<br><br>
+            My partner, my friend, my comfort, my everything — all in one.<br>
+            With you, life feels warmer, lighter, and happier.<br><br>
 
-    Thank you for being you, for loving me,
-    and for making my world so beautiful.<br><br>
+            Thank you for being you, for loving me,
+            and for making my world so beautiful.<br><br>
 
-    I love you more than words could ever say 💗😘<br><br>
-    <strong>– Apka novro Joylan..</strong>
-    </p>`;
+            I love you more than words could ever say 💗😘<br><br>
+            <strong>– Apka novro Joylan..</strong>
+        </p>
+    `;
 }
 
+/* MANY FLOATING HEARTS 💗❤️ */
 function startHearts(){
     setInterval(()=>{
         let h=document.createElement("div");
