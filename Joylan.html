@@ -7,79 +7,54 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-    body {
-        margin: 0;
-        height: 100vh;
-        background: linear-gradient(135deg, #f7c6e6, #ffd6e8);
-        font-family: 'Poppins', sans-serif;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .box {
-        background: white;
-        padding: 65px;
-        border-radius: 36px;
-        text-align: center;
-        box-shadow: 0 30px 60px rgba(0,0,0,0.18);
-        animation: pop 0.8s ease;
-        max-width: 580px;
-        width: 95%;
-    }
-
-    h1 {
-        color: #c9184a;
-        margin-bottom: 25px;
-        font-size: 3em;
-    }
-
-    p {
-        color: #555;
-        font-size: 1.6em;
-        line-height: 1.85;
-    }
-
-    button {
-        margin: 20px;
-        padding: 18px 44px;
-        border: none;
-        border-radius: 45px;
-        font-size: 1.4em;
-        cursor: pointer;
-        transition: 0.3s;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .yes { background: #ff4d6d; color: white; }
-    .no { background: #f1f1f1; }
-
-    .yes:hover { transform: scale(1.1); }
-    .no:hover { transform: translateX(35px); }
-
-    .heart {
-        position: absolute;
-        bottom: -60px;
-        font-size: 44px;
-        animation: float 5s linear infinite;
-        opacity: 0.95;
-    }
-
-    iframe {
-        margin-top: 30px;
-        border-radius: 18px;
-    }
-
-    @keyframes float {
-        from { transform: translateY(0); }
-        to { transform: translateY(-120vh); }
-    }
-
-    @keyframes pop {
-        from { transform: scale(0.85); opacity:0; }
-        to { transform: scale(1); opacity:1; }
-    }
+body{
+    margin:0;
+    height:100vh;
+    background:linear-gradient(135deg,#f7c6e6,#ffd6e8);
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.box{
+    background:white;
+    padding:65px;
+    border-radius:36px;
+    text-align:center;
+    box-shadow:0 30px 60px rgba(0,0,0,0.18);
+    max-width:580px;
+    width:95%;
+}
+h1{
+    color:#c9184a;
+    font-size:3em;
+}
+p{
+    font-size:1.6em;
+    line-height:1.85;
+    color:#555;
+}
+button{
+    margin:20px;
+    padding:18px 44px;
+    border:none;
+    border-radius:45px;
+    font-size:1.4em;
+    cursor:pointer;
+}
+.yes{background:#ff4d6d;color:white;}
+.no{background:#f1f1f1;}
+.heart{
+    position:absolute;
+    bottom:-60px;
+    font-size:44px;
+    animation:float 5s linear infinite;
+}
+@keyframes float{
+    from{transform:translateY(0);}
+    to{transform:translateY(-120vh);}
+}
 </style>
 </head>
 
@@ -93,67 +68,59 @@
 </div>
 
 <script>
-let content = document.getElementById("content");
+let content=document.getElementById("content");
 
 function noClicked(){
-    content.innerHTML = `
-        <h1>Oops 😭💔</h1>
-        <p>Will you be my Valentine’s, beboo?? 💕</p>
-        <button class="yes" onclick="yesClicked()">YES 💖</button>
-        <button class="no" onclick="noClicked()">NO 😢</button>
-    `;
+    content.innerHTML=`
+    <h1>Oops 😭💔</h1>
+    <p>Will you be my Valentine’s, beboo?? 💕</p>
+    <button class="yes" onclick="yesClicked()">YES 💖</button>
+    <button class="no" onclick="noClicked()">NO 😢</button>`;
 }
 
 function yesClicked(){
-    content.innerHTML = `
-        <h1>Hehehe 💗</h1>
-        <p>Lock kiya jaye? 😏🔒</p>
-        <button class="yes" onclick="finalYes()">Hanji 💖</button>
-        <button class="yes" onclick="finalYes()">Hannnnjiiii 💕</button>
-    `;
+    content.innerHTML=`
+    <h1>Hehehe 💗</h1>
+    <p>Lock kiya jaye? 😏🔒</p>
+    <button class="yes" onclick="finalYes()">Hanji 💖</button>
+    <button class="yes" onclick="finalYes()">Hannnnjiiii 💕</button>`;
 }
 
 function finalYes(){
-    startManyHearts();
+    startHearts();
 
-    content.innerHTML = `
-        <h1>Happy Valentine’s Day Baby 💗</h1>
-        <p>
-            You are the best thing that ever happened to me.<br>
-            You make me smile every single day, effortlessly.<br><br>
+    // OPEN SONG IN YOUTUBE (guaranteed play)
+    window.open(
+      "https://www.youtube.com/watch?v=1QfK7a6ZK4Q&t=52s",
+      "_blank"
+    );
 
-            My partner, my friend, my comfort, my everything — all in one.<br>
-            With you, life feels warmer, lighter, and happier.<br><br>
+    content.innerHTML=`
+    <h1>Happy Valentine’s Day Baby 💗</h1>
+    <p>
+    You are the best thing that ever happened to me.<br>
+    You make me smile every single day, effortlessly.<br><br>
 
-            Thank you for being you, for loving me,
-            and for making my world so beautiful.<br><br>
+    My partner, my friend, my comfort, my everything — all in one.<br>
+    With you, life feels warmer, lighter, and happier.<br><br>
 
-            I love you more than words could ever say 💗😘<br><br>
-            <strong>– Apka novro Joylan..</strong>
-        </p>
+    Thank you for being you, for loving me,
+    and for making my world so beautiful.<br><br>
 
-        <!-- Visible YouTube player (guaranteed to play) -->
-        <iframe
-          width="320"
-          height="180"
-          src="https://www.youtube.com/embed/1QfK7a6ZK4Q?start=52&loop=1&playlist=1QfK7a6ZK4Q"
-          frameborder="0"
-          allow="autoplay; encrypted-media"
-          allowfullscreen>
-        </iframe>
-    `;
+    I love you more than words could ever say 💗😘<br><br>
+    <strong>– Apka novro Joylan..</strong>
+    </p>`;
 }
 
-function startManyHearts(){
-    setInterval(() => {
-        let heart = document.createElement("div");
-        heart.className = "heart";
-        heart.innerHTML = Math.random() > 0.5 ? "💗" : "❤️";
-        heart.style.left = Math.random()*100 + "vw";
-        heart.style.animationDuration = (3 + Math.random()*3) + "s";
-        document.body.appendChild(heart);
-        setTimeout(()=>heart.remove(),7000);
-    }, 150);
+function startHearts(){
+    setInterval(()=>{
+        let h=document.createElement("div");
+        h.className="heart";
+        h.innerHTML=Math.random()>0.5?"💗":"❤️";
+        h.style.left=Math.random()*100+"vw";
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(),7000);
+    },150);
 }
 </script>
 
